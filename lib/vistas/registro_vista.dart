@@ -1,4 +1,5 @@
 import 'package:examen2/datos/usuarios.dart';
+import 'package:examen2/modelos/usuario.dart';
 import 'package:examen2/vistas/login_vista.dart';
 import 'package:flutter/material.dart';
 
@@ -249,6 +250,8 @@ class _RegistroVistaState extends State<RegistroVista> {
             GestureDetector(
               onTap: () async {
                 if (await validar()) {
+                  usuarios.add(Usuario(user.text, nombre.text, password.text,
+                      estadoCivil, escolaridad, habilidades));
                   Navigator.pushAndRemoveUntil(
                       context,
                       MaterialPageRoute(
